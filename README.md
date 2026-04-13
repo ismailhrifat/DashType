@@ -28,7 +28,7 @@ You can use it for:
 
 ## Installation
 
-1. Download the latest `DashType.dmg` from Releases.
+1. Download the latest `DashType.dmg` from [Releases](https://github.com/ismailhrifat/DashType/releases).
 2. Open the `.dmg`.
 3. Drag `DashType.app` into `Applications`.
 4. Open DashType.
