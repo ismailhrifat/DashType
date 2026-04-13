@@ -1,7 +1,18 @@
 .DS_Store
-.build
-.swiftpm
-.tmp-home
-Packages
-xcuserdata
-DerivedData
+.build/
+.swiftpm/
+.tmp-home/
+.xcodebuild/
+Build/
+DerivedData/
+Packages/
+*.dmg
+
+# Xcode user data
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+DashType.xcodeproj/xcuserdata/
+
+# Temporary icon/export artifacts
+icon.iconset/
