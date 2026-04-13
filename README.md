@@ -29,11 +29,17 @@ You can use it for:
 ## Installation
 
 1. Download the latest `DashType.dmg` from [Releases](https://github.com/ismailhrifat/DashType/releases).
-2. Open the `.dmg`.
-3. Drag `DashType.app` into `Applications`.
-4. Open DashType.
-
-The first time you use DashType, macOS will ask for Accessibility permission so the app can expand snippets where you type.
+2. Open the `.dmg` file by double-clicking it.
+3. Drag the `DashType.app` icon into your **Applications** folder.
+4. **Initial Setup (Required):**  
+   Because DashType is currently an unsigned indie project, macOS might say the app is "damaged" when you first try to open it. To fix this:
+   - **Open Terminal:** Press `Command + Space`, type **Terminal**, and hit Enter.
+   - **Run this command:** Copy and paste the following line into the Terminal and press Enter (you will need to type your Mac password):
+   ```bash
+   sudo xattr -rd com.apple.quarantine /Applications/DashType.app
+   ```
+   The first time you use DashType, macOS will ask for Accessibility permission so the app can expand snippets where you type.
+5. Open DashType from your Applications folder or Launchpad.
 
 ## First-Time Setup
 
