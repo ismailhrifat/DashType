@@ -1,0 +1,40 @@
+{
+  "source": "/Users/ismailhrifat/Desktop/DashType/Sources/DashTypeApp/DashTypeApp.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "DashType",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "DashType",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Import...",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export...",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 77
+        }
+      }
+    ]
+  },
+  "version": 1
+}

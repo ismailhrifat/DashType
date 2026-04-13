@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A00000000000000000000045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000044 /* Assets.xcassets */; };
+		A00000000000000000000021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000020 /* AppDelegate.swift */; };
+		A00000000000000000000023 /* DashTypeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000022 /* DashTypeApp.swift */; };
+		A00000000000000000000025 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000024 /* DashboardView.swift */; };
+		A00000000000000000000027 /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000026 /* LaunchAtLoginManager.swift */; };
+		A00000000000000000000043 /* MarkdownTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000042 /* MarkdownTextEditor.swift */; };
+		A00000000000000000000029 /* MenuBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000028 /* MenuBarContentView.swift */; };
+		A0000000000000000000003F /* SnippetTransferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000003E /* SnippetTransferController.swift */; };
+		A0000000000000000000002B /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000002A /* PermissionManager.swift */; };
+		A0000000000000000000002D /* SnippetEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000002C /* SnippetEditorView.swift */; };
+		A0000000000000000000002F /* TextExpansionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000002E /* TextExpansionController.swift */; };
+		A00000000000000000000039 /* TextReplacementEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000038 /* TextReplacementEngine.swift */; };
+		A00000000000000000000031 /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000030 /* Snippet.swift */; };
+		A0000000000000000000003B /* SnippetFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000003A /* SnippetFolder.swift */; };
+		A00000000000000000000041 /* SnippetTransferDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000040 /* SnippetTransferDocument.swift */; };
+		A00000000000000000000033 /* SnippetMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000032 /* SnippetMatch.swift */; };
+		A00000000000000000000035 /* SnippetMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000034 /* SnippetMatcher.swift */; };
+		A00000000000000000000037 /* SnippetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000036 /* SnippetStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A00000000000000000000008 /* DashType.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DashType.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000000000000000000013 /* DashType-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DashType-Info.plist"; sourceTree = "<group>"; };
+		A00000000000000000000044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00000000000000000000020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A00000000000000000000022 /* DashTypeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashTypeApp.swift; sourceTree = "<group>"; };
+		A00000000000000000000024 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		A00000000000000000000026 /* LaunchAtLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginManager.swift; sourceTree = "<group>"; };
+		A00000000000000000000042 /* MarkdownTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTextEditor.swift; sourceTree = "<group>"; };
+		A00000000000000000000028 /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
+		A0000000000000000000003E /* SnippetTransferController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetTransferController.swift; sourceTree = "<group>"; };
+		A0000000000000000000002A /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		A0000000000000000000002C /* SnippetEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetEditorView.swift; sourceTree = "<group>"; };
+		A0000000000000000000002E /* TextExpansionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExpansionController.swift; sourceTree = "<group>"; };
+		A00000000000000000000038 /* TextReplacementEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReplacementEngine.swift; sourceTree = "<group>"; };
+		A00000000000000000000030 /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
+		A0000000000000000000003A /* SnippetFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetFolder.swift; sourceTree = "<group>"; };
+		A00000000000000000000040 /* SnippetTransferDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetTransferDocument.swift; sourceTree = "<group>"; };
+		A00000000000000000000032 /* SnippetMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetMatch.swift; sourceTree = "<group>"; };
+		A00000000000000000000034 /* SnippetMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetMatcher.swift; sourceTree = "<group>"; };
+		A00000000000000000000036 /* SnippetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetStore.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A00000000000000000000011 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A00000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000044 /* Assets.xcassets */,
+				A00000000000000000000004 /* Sources */,
+				A00000000000000000000007 /* Config */,
+				A00000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A00000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000008 /* DashType.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000004 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000005 /* DashTypeApp */,
+				A00000000000000000000006 /* DashTypeCore */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000005 /* DashTypeApp */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000020 /* AppDelegate.swift */,
+				A00000000000000000000022 /* DashTypeApp.swift */,
+				A00000000000000000000024 /* DashboardView.swift */,
+				A00000000000000000000026 /* LaunchAtLoginManager.swift */,
+				A00000000000000000000042 /* MarkdownTextEditor.swift */,
+				A00000000000000000000028 /* MenuBarContentView.swift */,
+				A0000000000000000000003E /* SnippetTransferController.swift */,
+				A0000000000000000000002A /* PermissionManager.swift */,
+				A0000000000000000000002C /* SnippetEditorView.swift */,
+				A0000000000000000000002E /* TextExpansionController.swift */,
+				A00000000000000000000038 /* TextReplacementEngine.swift */,
+			);
+			path = DashTypeApp;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000006 /* DashTypeCore */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000030 /* Snippet.swift */,
+				A0000000000000000000003A /* SnippetFolder.swift */,
+				A00000000000000000000040 /* SnippetTransferDocument.swift */,
+				A00000000000000000000032 /* SnippetMatch.swift */,
+				A00000000000000000000034 /* SnippetMatcher.swift */,
+				A00000000000000000000036 /* SnippetStore.swift */,
+			);
+			path = DashTypeCore;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000007 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000013 /* DashType-Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A00000000000000000000009 /* DashType */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0000000000000000000000B /* Build configuration list for PBXNativeTarget "DashType" */;
+			buildPhases = (
+				A00000000000000000000010 /* Sources */,
+				A00000000000000000000011 /* Frameworks */,
+				A00000000000000000000012 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DashType;
+			productName = DashType;
+			productReference = A00000000000000000000008 /* DashType.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A00000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					A00000000000000000000009 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+				};
+			};
+			buildConfigurationList = A0000000000000000000000A /* Build configuration list for PBXProject "DashType" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A00000000000000000000002;
+			productRefGroup = A00000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A00000000000000000000009 /* DashType */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A00000000000000000000012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000000000000000000045 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A00000000000000000000010 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000000000000000000021 /* AppDelegate.swift in Sources */,
+				A00000000000000000000023 /* DashTypeApp.swift in Sources */,
+				A00000000000000000000025 /* DashboardView.swift in Sources */,
+				A00000000000000000000027 /* LaunchAtLoginManager.swift in Sources */,
+				A00000000000000000000043 /* MarkdownTextEditor.swift in Sources */,
+				A00000000000000000000029 /* MenuBarContentView.swift in Sources */,
+				A0000000000000000000003F /* SnippetTransferController.swift in Sources */,
+				A0000000000000000000002B /* PermissionManager.swift in Sources */,
+				A0000000000000000000002D /* SnippetEditorView.swift in Sources */,
+				A0000000000000000000002F /* TextExpansionController.swift in Sources */,
+				A00000000000000000000039 /* TextReplacementEngine.swift in Sources */,
+				A00000000000000000000031 /* Snippet.swift in Sources */,
+				A0000000000000000000003B /* SnippetFolder.swift in Sources */,
+				A00000000000000000000041 /* SnippetTransferDocument.swift in Sources */,
+				A00000000000000000000033 /* SnippetMatch.swift in Sources */,
+				A00000000000000000000035 /* SnippetMatcher.swift in Sources */,
+				A00000000000000000000037 /* SnippetStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A0000000000000000000000C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A0000000000000000000000D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A0000000000000000000000E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8M846D895J;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/DashType-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DashType;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		A0000000000000000000000F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8M846D895J;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/DashType-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DashType;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0000000000000000000000A /* Build configuration list for PBXProject "DashType" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0000000000000000000000C /* Debug */,
+				A0000000000000000000000D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0000000000000000000000B /* Build configuration list for PBXNativeTarget "DashType" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0000000000000000000000E /* Debug */,
+				A0000000000000000000000F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A00000000000000000000001 /* Project object */;
+}

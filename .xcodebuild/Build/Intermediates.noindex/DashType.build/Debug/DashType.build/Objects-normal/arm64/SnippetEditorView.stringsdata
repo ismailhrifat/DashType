@@ -1,0 +1,208 @@
+{
+  "source": "/Users/ismailhrifat/Desktop/DashType/Sources/DashTypeApp/SnippetEditorView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Delete Snippet?",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 92
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "This will permanently delete this snippet.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 100
+        }
+      },
+      {
+        "comment": "",
+        "key": "Snippet Details",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 107
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create short triggers that expand instantly anywhere you type.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 109
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 118
+        }
+      },
+      {
+        "comment": "",
+        "key": "For best experience, add a special character like / or - before the command so that it does not conflict with regular typing.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 145
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enabled",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 155
+        }
+      },
+      {
+        "comment": "",
+        "key": "Trigger",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 127
+        }
+      },
+      {
+        "comment": "",
+        "key": "/greet",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 130
+        }
+      },
+      {
+        "comment": "",
+        "key": "Title",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 136
+        }
+      },
+      {
+        "comment": "",
+        "key": "Greeting",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 139
+        }
+      },
+      {
+        "comment": "",
+        "key": "Expanded Text",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 164
+        }
+      },
+      {
+        "comment": "",
+        "key": "Try typing this command anywhere in this Mac.",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 334
+        }
+      },
+      {
+        "comment": "",
+        "key": "Try typing ",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 338
+        }
+      },
+      {
+        "comment": "",
+        "key": " anywhere in this Mac.",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 343
+        }
+      },
+      {
+        "comment": "",
+        "key": "Insert Link",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 217
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bullet List",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 244
+        }
+      },
+      {
+        "comment": "",
+        "key": "Numbered List",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 253
+        }
+      },
+      {
+        "comment": "",
+        "key": "Body",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 220
+        }
+      },
+      {
+        "comment": "",
+        "key": "Title",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 223
+        }
+      },
+      {
+        "comment": "",
+        "key": "Heading",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 226
+        }
+      },
+      {
+        "comment": "",
+        "key": "Subheading",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 229
+        }
+      },
+      {
+        "comment": "",
+        "key": "Style",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 233
+        }
+      }
+    ]
+  },
+  "version": 1
+}

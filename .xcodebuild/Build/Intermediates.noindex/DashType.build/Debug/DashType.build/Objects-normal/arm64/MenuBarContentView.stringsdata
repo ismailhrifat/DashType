@@ -1,0 +1,80 @@
+{
+  "source": "/Users/ismailhrifat/Desktop/DashType/Sources/DashTypeApp/MenuBarContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Open at Login",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enable Accessibility",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 45
+        }
+      },
+      {
+        "comment": "",
+        "key": "Turn Off",
+        "location": {
+          "startingColumn": 17,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Running",
+        "location": {
+          "startingColumn": 57,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stopped",
+        "location": {
+          "startingColumn": 69,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "DashType",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 19
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld active snippets",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "Open Dashboard",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quit DashType",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 75
+        }
+      }
+    ]
+  },
+  "version": 1
+}

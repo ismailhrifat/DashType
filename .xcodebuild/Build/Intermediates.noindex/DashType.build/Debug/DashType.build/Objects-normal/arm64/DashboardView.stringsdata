@@ -1,0 +1,184 @@
+{
+  "source": "/Users/ismailhrifat/Desktop/DashType/Sources/DashTypeApp/DashboardView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Delete Folder?",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 63
+        }
+      },
+      {
+        "comment": "",
+        "key": "This will permanently delete the folder \"%@\" and all snippets inside it.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "DashType",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 75
+        }
+      },
+      {
+        "comment": "",
+        "key": "Fast text expansion from your menu bar.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 77
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search snippets",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create a folder to start organizing your snippets.",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 152
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Folders Yet",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 150
+        }
+      },
+      {
+        "comment": "",
+        "key": "New Folder",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enable Accessibility in System Settings so DashType can expand snippets anywhere you type.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "Accessibility Needed",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 132
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enable Accessibility",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 139
+        }
+      },
+      {
+        "comment": "",
+        "key": "Folder name",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 176
+        }
+      },
+      {
+        "comment": "",
+        "key": "Disable Folder",
+        "location": {
+          "startingColumn": 47,
+          "startingLine": 196
+        }
+      },
+      {
+        "comment": "",
+        "key": "Enable Folder",
+        "location": {
+          "startingColumn": 66,
+          "startingLine": 196
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rename Folder",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 200
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete Folder",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 210
+        }
+      },
+      {
+        "comment": "",
+        "key": "This folder is empty.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 230
+        }
+      },
+      {
+        "comment": "",
+        "key": "New Snippet",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 223
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create a folder, then add a snippet inside it.",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 278
+        }
+      },
+      {
+        "comment": "",
+        "key": "Select a Snippet",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 276
+        }
+      }
+    ]
+  },
+  "version": 1
+}
