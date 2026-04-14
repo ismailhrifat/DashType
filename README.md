@@ -1,167 +1,145 @@
 # DashType
 
-DashType is a fast, native macOS text expander that lives in your menu bar.
+DashType is a native macOS text expander for fast snippets, rich text templates, and optional cloud sync.
 
-It lets you turn short commands like `/greet` into full text anywhere you type. If you use the same replies, links, signatures, notes, or formatted text again and again, DashType helps you type less and move faster.
+Type a short trigger like `/greet` and DashType expands it instantly anywhere you write. It is built for replies, links, signatures, notes, support macros, and formatted templates you use every day.
 
-## What DashType Does
+## Features
 
-- Expands short commands instantly as you type
-- Works across your Mac in apps like notes, browsers, editors, and chat apps
-- Keeps everything organized in folders
-- Supports rich text formatting like bold, italic, links, headings, and lists
-- Stays lightweight and easy to access from the menu bar
+- Native macOS dashboard with folders and snippet management
+- Rich text snippets with bold, italic, underline, links, headings, lists, subscript, and superscript
+- Menu bar access for quick control without keeping a full window open
+- Settings window with `Open at Login`, `Show in the Menubar`, and `Turn Off DashType`
+- Import and export for snippet backups and moving between Macs
+- Optional cloud sync with email/password sign in
+- Local-first storage with offline editing and automatic cloud upload when the network returns
 
-## Why Use It
+## How It Works
 
-DashType is built for people who want quick text expansion without a complicated setup.
+- Create folders to organize snippets by topic or workflow
+- Add a trigger, title, and expanded text for each snippet
+- Type the trigger in any app where Accessibility access is allowed
+- DashType replaces the trigger with the saved snippet content
 
-You can use it for:
+For the smoothest experience, use triggers with a prefix such as `/`, `;`, or `-`.
 
-- common replies
-- email signatures
-- links you paste often
-- meeting notes
-- support answers
-- formatted templates
-- personal writing shortcuts
+Examples:
+
+- `/greet`
+- `;sig`
+- `-meeting`
+
+## Rich Text
+
+DashType stores both plain text content and rich text data, so formatting is preserved when pasting into apps that support rich text.
+
+Supported formatting includes:
+
+- Bold
+- Italic
+- Underline
+- Strikethrough
+- Links
+- Headings
+- Bullet lists
+- Numbered lists
+- Subscript
+- Superscript
+
+## Cloud Sync
+
+Cloud sync is optional.
+
+When `Sync with Cloud` is turned on:
+
+- DashType asks you to sign in or create an account with email and password
+- It performs a one-time merge between local snippets and cloud snippets
+- Duplicate triggers are avoided during that first merge
+- Newer snippet versions win when local and cloud copies differ
+- Later changes upload from your Mac to the cloud automatically
+- If you are offline, changes stay local first and upload when connectivity returns
+
+## Settings
+
+DashType includes a dedicated settings window with:
+
+- `Sync with Cloud`
+- `Open at Login`
+- `Show in the Menubar`
+- `Turn Off DashType`
+- `Import Snippets`
+- `Export Snippets`
+
+If you are signed in to cloud sync, the settings window also includes a sign-out button beside the sync toggle.
 
 ## Installation
 
 1. Download the latest `DashType.dmg` from [Releases](https://github.com/ismailhrifat/DashType/releases).
-2. Open the `.dmg` file by double-clicking it.
-3. Drag the `DashType.app` icon into your **Applications** folder.
-4. **Initial Setup (Required):**  
-   Because DashType is currently an unsigned indie project, macOS might say the app is "damaged" when you first try to open it. To fix this:
-   - **Open Terminal:** Press `Command + Space`, type **Terminal**, and hit Enter.
-   - **Run this command:** Copy and paste the following line into the Terminal and press Enter (you will need to type your Mac password):
-   ```bash
-   sudo xattr -rd com.apple.quarantine /Applications/DashType.app
-   ```
-   The first time you use DashType, macOS will ask for Accessibility permission so the app can expand snippets where you type.
-5. Open DashType from your Applications folder or Launchpad.
+2. Open the `.dmg` file.
+3. Drag `DashType.app` into your `Applications` folder.
+4. If macOS says the app is damaged because it is unsigned, open Terminal and run:
 
-## First-Time Setup
+```bash
+sudo xattr -rd com.apple.quarantine /Applications/DashType.app
+```
 
-1. Launch DashType.
-2. Click the DashType icon in the menu bar.
-3. Open the dashboard.
-4. Allow Accessibility access when prompted by macOS.
+5. Launch DashType.
+6. Grant Accessibility access when macOS prompts you.
 
-That is the main permission DashType needs to work.
-
-## How to Use DashType
-
-### Create a folder
-
-Folders help you organize snippets by topic, project, or workflow.
-
-- Personal
-- Work
-- Writing
-- Support
-
-### Add a snippet
-
-Inside a folder, create a snippet and fill in:
-
-- `Trigger`
-- `Title`
-- `Expanded Text`
-
-Example:
-
-- Trigger: `/greet`
-- Title: `Greeting`
-- Expanded Text: `Hi, how are you?`
-
-Now when you type `/greet`, DashType replaces it with `Hi, how are you?`
-
-## Best Trigger Style
-
-For the smoothest experience, use a special character before your trigger so it does not conflict with normal typing.
-
-Good examples:
-
-- `/greet`
-- `;email`
-- `-sig`
-
-This makes snippets easier to remember and avoids accidental expansion.
-
-## Rich Text Support
-
-DashType can save and paste rich text snippets, not just plain text.
-
-You can format snippet content with:
-
-- bold
-- italic
-- underline
-- strikethrough
-- links
-- headings
-- bullet lists
-- numbered lists
-- subscript
-- superscript
-
-If the app you paste into supports rich text, DashType keeps that formatting.
+Accessibility permission is required so DashType can detect triggers and replace text in other apps.
 
 ## Import and Export
 
-DashType lets you back up or move your folders using JSON export and import.
+You can back up or move snippets in two ways:
 
-### Export
+- From the Settings window with `Import Snippets` and `Export Snippets`
+- From the macOS `File` menu with `Import...` and `Export...`
 
-1. Open the dashboard.
-2. In the top menu bar, choose `File > Export...`
-3. Select the folders you want to export.
-4. Save the file.
+This is useful for backups, migration, and sharing snippet sets between Macs.
 
-### Import
+## Build From Source
 
-1. In the top menu bar, choose `File > Import...`
-2. Select a DashType export file.
-3. Choose which folders to import.
+Requirements:
 
-This is useful for backups, moving to another Mac, or sharing your setup.
+- macOS 14 or later
+- Xcode 15 or later
 
-## Menu Bar Experience
+Steps:
 
-DashType stays in your menu bar so it is always nearby without getting in the way.
+1. Clone the repository.
+2. Open `DashType.xcodeproj`.
+3. Let Xcode resolve Swift packages.
+4. Build and run the `DashType` scheme.
 
-From the menu bar, you can:
+## Firebase Setup
 
-- open the dashboard
-- turn launch at login on or off
-- turn DashType on or off
-- quit the app
+Cloud sync uses Firebase Authentication and Cloud Firestore.
 
-When the dashboard is open, DashType also appears as a normal app window in macOS.
+If you are setting up your own Firebase project:
+
+1. Create an Apple app in Firebase using your macOS bundle identifier.
+2. Enable `Email/Password` in Firebase Authentication.
+3. Create a Cloud Firestore database.
+4. Add `GoogleService-Info.plist` to `Config/`.
+5. Ensure the app target has Keychain Sharing enabled for Firebase Auth on macOS.
 
 ## Privacy
 
-Your snippets stay on your Mac. DashType is built as a local-first app for personal text expansion.
+DashType is local-first.
 
-## Who It’s For
+- Snippets are stored on your Mac by default
+- Cloud sync is optional and only used when you enable it
+- Rich text content is preserved during local storage and cloud sync
 
-DashType is a great fit for:
+## Good Fit For
 
-- writers
-- developers
-- customer support teams
-- founders
-- students
-- anyone who types the same things every day
-
-## Tips
-
-- Start with just a few snippets you use every day
-- Use short, memorable triggers
-- Group related snippets into folders
-- Use export to keep a backup of your setup
+- Writers
+- Developers
+- Support teams
+- Founders
+- Students
+- Anyone repeating the same text all day
 
 ## Feedback
 
-If you have an idea, find a bug, or want to suggest an improvement, feel free to open an issue on GitHub.
+If you find a bug or want to suggest an improvement, open an issue or start a discussion on GitHub.

@@ -6,6 +6,12 @@ let package = Package(
     platforms: [
         .macOS(.v14),
     ],
+    dependencies: [
+        .package(
+            url: "https://github.com/firebase/firebase-ios-sdk.git",
+            from: "12.7.0"
+        ),
+    ],
     products: [
         .library(
             name: "DashTypeCore",
@@ -22,7 +28,12 @@ let package = Package(
         ),
         .executableTarget(
             name: "DashTypeApp",
-            dependencies: ["DashTypeCore"]
+            dependencies: [
+                "DashTypeCore",
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseCore", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
+            ]
         ),
         .testTarget(
             name: "DashTypeCoreTests",
@@ -30,4 +41,3 @@ let package = Package(
         ),
     ]
 )
-

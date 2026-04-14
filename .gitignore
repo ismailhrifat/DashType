@@ -7,6 +7,7 @@ Build/
 DerivedData/
 Packages/
 *.dmg
+DashType.app/
 
 # Xcode user data
 *.xcuserstate

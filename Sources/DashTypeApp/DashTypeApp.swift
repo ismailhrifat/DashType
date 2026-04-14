@@ -6,12 +6,14 @@ import SwiftUI
 @main
 struct DashTypeApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    @AppStorage(AppPreferences.showsMenuBarExtraKey) private var showsMenuBarExtra = true
 
     @StateObject private var store: SnippetStore
     @StateObject private var permissions: PermissionManager
     @StateObject private var launchAtLogin: LaunchAtLoginManager
     @StateObject private var expansionController: TextExpansionController
     @StateObject private var snippetTransferController: SnippetTransferController
+    @StateObject private var cloudSyncManager: CloudSyncManager
 
     init() {
         let store = SnippetStore()
@@ -28,10 +30,13 @@ struct DashTypeApp: App {
         _snippetTransferController = StateObject(
             wrappedValue: SnippetTransferController(store: store)
         )
+        _cloudSyncManager = StateObject(
+            wrappedValue: CloudSyncManager(store: store)
+        )
     }
 
     var body: some Scene {
-        Window("DashType", id: "dashboard") {
+        Window("", id: "dashboard") {
             DashboardView(
                 store: store,
                 permissions: permissions,
@@ -40,11 +45,12 @@ struct DashTypeApp: App {
             )
             .onAppear {
                 expansionController.start()
+                cloudSyncManager.activateIfNeeded()
             }
         }
         .defaultSize(width: 980, height: 660)
 
-        MenuBarExtra("DashType", systemImage: "text.badge.plus") {
+        MenuBarExtra("DashType", systemImage: "text.badge.plus", isInserted: $showsMenuBarExtra) {
             MenuBarContentView(
                 store: store,
                 permissions: permissions,
@@ -54,19 +60,24 @@ struct DashTypeApp: App {
             .onAppear {
                 permissions.refresh()
                 expansionController.start()
+                cloudSyncManager.activateIfNeeded()
             }
         }
         .menuBarExtraStyle(.window)
 
         Settings {
-            DashboardView(
-                store: store,
-                permissions: permissions,
+            SettingsView(
+                cloudSyncManager: cloudSyncManager,
                 launchAtLogin: launchAtLogin,
-                expansionController: expansionController
+                permissions: permissions,
+                expansionController: expansionController,
+                snippetTransferController: snippetTransferController
             )
+            .onAppear {
+                cloudSyncManager.activateIfNeeded()
+            }
         }
-        .defaultSize(width: 980, height: 660)
+        .defaultSize(width: 620, height: 500)
         .commands {
             CommandGroup(after: .newItem) {
                 Button("Import...") {

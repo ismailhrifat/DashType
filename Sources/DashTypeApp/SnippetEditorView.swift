@@ -5,6 +5,7 @@ import SwiftUI
 
 struct SnippetEditorView: View {
     let snippet: Snippet
+    let sidebarIsVisible: Bool
     let onSave: (Snippet.ID, String, String, String, Data?, Bool) -> Bool
     let onDelete: (Snippet.ID) -> Void
     let duplicateTriggerOwnerTitle: (Snippet.ID, String) -> String?
@@ -21,11 +22,13 @@ struct SnippetEditorView: View {
 
     init(
         snippet: Snippet,
+        sidebarIsVisible: Bool,
         onSave: @escaping (Snippet.ID, String, String, String, Data?, Bool) -> Bool,
         onDelete: @escaping (Snippet.ID) -> Void,
         duplicateTriggerOwnerTitle: @escaping (Snippet.ID, String) -> String?
     ) {
         self.snippet = snippet
+        self.sidebarIsVisible = sidebarIsVisible
         self.onSave = onSave
         self.onDelete = onDelete
         self.duplicateTriggerOwnerTitle = duplicateTriggerOwnerTitle
@@ -38,16 +41,20 @@ struct SnippetEditorView: View {
 
     var body: some View {
         GeometryReader { _ in
-            VStack(alignment: .leading, spacing: 20) {
-                header
-                fieldCard
-                contentCard
+            VStack(spacing: 0) {
+                topBar
+
+                VStack(alignment: .leading, spacing: 20) {
+                    fieldCard
+                    contentCard
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .padding(.horizontal, 24)
+                .padding(.top, 14)
+                .padding(.bottom, 24)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .padding(.horizontal, 24)
-            .padding(.top, 12)
-            .padding(.bottom, 24)
         }
+        .ignoresSafeArea(.container, edges: .top)
         .background(
             LinearGradient(
                 colors: [
@@ -101,14 +108,10 @@ struct SnippetEditorView: View {
         }
     }
 
-    private var header: some View {
-        HStack(alignment: .top) {
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Snippet Details")
-                    .font(.system(size: 22, weight: .semibold))
-                Text("Create short triggers that expand instantly anywhere you type.")
-                    .foregroundStyle(.secondary)
-            }
+    private var topBar: some View {
+        HStack {
+            Text("Snippet Details")
+                .font(.system(size: 22, weight: .semibold))
 
             Spacer()
 
@@ -117,6 +120,15 @@ struct SnippetEditorView: View {
             } label: {
                 Label("Delete", systemImage: "trash")
             }
+        }
+        .padding(.leading, sidebarIsVisible ? 24 : 150)
+        .padding(.trailing, 24)
+        .padding(.top, 12)
+        .padding(.bottom, 12)
+        .background(Color(nsColor: .windowBackgroundColor).opacity(0.96))
+        .overlay(alignment: .bottom) {
+            Divider()
+                .opacity(0.35)
         }
     }
 

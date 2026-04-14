@@ -9,6 +9,7 @@ struct DashboardView: View {
     @ObservedObject var launchAtLogin: LaunchAtLoginManager
     @ObservedObject var expansionController: TextExpansionController
 
+    @State private var columnVisibility: NavigationSplitViewVisibility = .automatic
     @State private var selectedSnippetID: Snippet.ID?
     @State private var expandedFolderIDs: Set<SnippetFolder.ID> = []
     @State private var editingFolderID: SnippetFolder.ID?
@@ -17,7 +18,7 @@ struct DashboardView: View {
     @FocusState private var focusedFolderID: SnippetFolder.ID?
 
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: $columnVisibility) {
             sidebar
         } detail: {
             detail
@@ -71,11 +72,31 @@ struct DashboardView: View {
 
     private var sidebar: some View {
         VStack(spacing: 16) {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("DashType")
-                    .font(.system(size: 28, weight: .bold))
-                Text("Fast text expansion from your menu bar.")
-                    .foregroundStyle(.secondary)
+            HStack(alignment: .top, spacing: 16) {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("DashType")
+                        .font(.system(size: 28, weight: .bold))
+                    Text("Fast text expansion from your menu bar.")
+                        .foregroundStyle(.secondary)
+                }
+
+                Spacer(minLength: 0)
+
+                SettingsLink {
+                    Image(systemName: "gearshape")
+                        .font(.system(size: 17, weight: .medium))
+                        .foregroundStyle(.primary)
+                        .frame(width: 18, height: 18)
+                        .frame(width: 32, height: 32)
+                        .background(.regularMaterial, in: Circle())
+                        .overlay {
+                            Circle()
+                                .stroke(Color.white.opacity(0.08), lineWidth: 1)
+                        }
+                }
+                .buttonStyle(.plain)
+                .help("Open Settings")
+                .padding(.top, 4)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -250,6 +271,7 @@ struct DashboardView: View {
             if let snippet = store.snippet(id: selectedSnippetID) {
                 SnippetEditorView(
                     snippet: snippet,
+                    sidebarIsVisible: columnVisibility != .detailOnly,
                     onSave: { id, title, trigger, content, richTextData, isEnabled in
                         store.updateSnippet(
                             id: id,

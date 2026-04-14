@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A00000000000000000000045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000044 /* Assets.xcassets */; };
+		A00000000000000000000047 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000046 /* GoogleService-Info.plist */; };
+		A00000000000000000000048 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = A0000000000000000000004C /* FirebaseCore */; };
+		A00000000000000000000049 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A0000000000000000000004D /* FirebaseAuth */; };
+		A0000000000000000000004A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A0000000000000000000004E /* FirebaseFirestore */; };
+		A0000000000000000000004F /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000050 /* AppPreferences.swift */; };
+		A00000000000000000000051 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000052 /* SettingsView.swift */; };
+		A00000000000000000000053 /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000054 /* CloudSyncManager.swift */; };
+		A00000000000000000000055 /* CloudSyncAuthSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000056 /* CloudSyncAuthSheetView.swift */; };
 		A00000000000000000000021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000020 /* AppDelegate.swift */; };
 		A00000000000000000000023 /* DashTypeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000022 /* DashTypeApp.swift */; };
 		A00000000000000000000025 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000024 /* DashboardView.swift */; };
@@ -30,7 +38,13 @@
 /* Begin PBXFileReference section */
 		A00000000000000000000008 /* DashType.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DashType.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00000000000000000000013 /* DashType-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DashType-Info.plist"; sourceTree = "<group>"; };
+		A00000000000000000000057 /* DashType.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DashType.entitlements; sourceTree = "<group>"; };
 		A00000000000000000000044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00000000000000000000046 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A00000000000000000000050 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
+		A00000000000000000000052 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A00000000000000000000054 /* CloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncManager.swift; sourceTree = "<group>"; };
+		A00000000000000000000056 /* CloudSyncAuthSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncAuthSheetView.swift; sourceTree = "<group>"; };
 		A00000000000000000000020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A00000000000000000000022 /* DashTypeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashTypeApp.swift; sourceTree = "<group>"; };
 		A00000000000000000000024 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -55,6 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00000000000000000000049 /* FirebaseAuth in Frameworks */,
+				A00000000000000000000048 /* FirebaseCore in Frameworks */,
+				A0000000000000000000004A /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				A00000000000000000000020 /* AppDelegate.swift */,
+				A00000000000000000000050 /* AppPreferences.swift */,
+				A00000000000000000000056 /* CloudSyncAuthSheetView.swift */,
+				A00000000000000000000054 /* CloudSyncManager.swift */,
 				A00000000000000000000022 /* DashTypeApp.swift */,
 				A00000000000000000000024 /* DashboardView.swift */,
 				A00000000000000000000026 /* LaunchAtLoginManager.swift */,
@@ -99,6 +119,7 @@
 				A00000000000000000000028 /* MenuBarContentView.swift */,
 				A0000000000000000000003E /* SnippetTransferController.swift */,
 				A0000000000000000000002A /* PermissionManager.swift */,
+				A00000000000000000000052 /* SettingsView.swift */,
 				A0000000000000000000002C /* SnippetEditorView.swift */,
 				A0000000000000000000002E /* TextExpansionController.swift */,
 				A00000000000000000000038 /* TextReplacementEngine.swift */,
@@ -123,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				A00000000000000000000013 /* DashType-Info.plist */,
+				A00000000000000000000057 /* DashType.entitlements */,
+				A00000000000000000000046 /* GoogleService-Info.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -143,6 +166,11 @@
 			dependencies = (
 			);
 			name = DashType;
+			packageProductDependencies = (
+				A0000000000000000000004D /* FirebaseAuth */,
+				A0000000000000000000004C /* FirebaseCore */,
+				A0000000000000000000004E /* FirebaseFirestore */,
+			);
 			productName = DashType;
 			productReference = A00000000000000000000008 /* DashType.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +199,9 @@
 				Base,
 			);
 			mainGroup = A00000000000000000000002;
+			packageReferences = (
+				A0000000000000000000004B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = A00000000000000000000003 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A00000000000000000000045 /* Assets.xcassets in Resources */,
+				A00000000000000000000047 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +228,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0000000000000000000004F /* AppPreferences.swift in Sources */,
 				A00000000000000000000021 /* AppDelegate.swift in Sources */,
+				A00000000000000000000055 /* CloudSyncAuthSheetView.swift in Sources */,
+				A00000000000000000000053 /* CloudSyncManager.swift in Sources */,
 				A00000000000000000000023 /* DashTypeApp.swift in Sources */,
 				A00000000000000000000025 /* DashboardView.swift in Sources */,
 				A00000000000000000000027 /* LaunchAtLoginManager.swift in Sources */,
@@ -204,6 +239,7 @@
 				A00000000000000000000029 /* MenuBarContentView.swift in Sources */,
 				A0000000000000000000003F /* SnippetTransferController.swift in Sources */,
 				A0000000000000000000002B /* PermissionManager.swift in Sources */,
+				A00000000000000000000051 /* SettingsView.swift in Sources */,
 				A0000000000000000000002D /* SnippetEditorView.swift in Sources */,
 				A0000000000000000000002F /* TextExpansionController.swift in Sources */,
 				A00000000000000000000039 /* TextReplacementEngine.swift in Sources */,
@@ -241,6 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/DashType.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8M846D895J;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -251,7 +288,11 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.DashType;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ismailhrifat.DashType;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
@@ -262,6 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/DashType.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8M846D895J;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -272,7 +314,11 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.DashType;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ismailhrifat.DashType;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
@@ -280,6 +326,35 @@
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A0000000000000000000004B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A0000000000000000000004C /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0000000000000000000004B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		A0000000000000000000004D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0000000000000000000004B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		A0000000000000000000004E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0000000000000000000004B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCConfigurationList section */
 		A0000000000000000000000A /* Build configuration list for PBXProject "DashType" */ = {
