@@ -542,6 +542,90 @@ final class RichTextEditorController: ObservableObject {
         toggleBaseline(offset: 4)
     }
 
+    func insertCursorCommandIfNeeded() {
+        insertUniqueCommandIfNeeded(SnippetCommandProcessor.cursorToken)
+    }
+
+    func insertClipboardCommand() {
+        insertText(SnippetCommandProcessor.clipboardToken)
+    }
+
+    func insertAddTextCommandIfNeeded() {
+        insertUniqueCommandIfNeeded(SnippetCommandProcessor.addTextToken)
+    }
+
+    func insertText(_ string: String) {
+        guard let textView else {
+            return
+        }
+
+        let attributes = sanitizedTypingAttributes(textView.typingAttributes)
+        let attributed = NSAttributedString(string: string, attributes: attributes)
+        replaceSelection(in: textView, range: textView.selectedRange(), with: attributed)
+    }
+
+    @discardableResult
+    func normalizeToSingleCursorCommand() -> Bool {
+        normalizeToSingleCommand(SnippetCommandProcessor.cursorToken)
+    }
+
+    @discardableResult
+    func normalizeToSingleAddTextCommand() -> Bool {
+        normalizeToSingleCommand(SnippetCommandProcessor.addTextToken)
+    }
+
+    private func insertUniqueCommandIfNeeded(_ token: String) {
+        guard let textView, !textView.string.contains(token) else {
+            return
+        }
+
+        insertText(token)
+    }
+
+    @discardableResult
+    private func normalizeToSingleCommand(_ tokenString: String) -> Bool {
+        guard let textView, let textStorage = textView.textStorage else {
+            return false
+        }
+
+        let token = tokenString as NSString
+        let fullText = textStorage.string as NSString
+        let firstRange = fullText.range(of: token as String)
+        guard firstRange.location != NSNotFound else {
+            return false
+        }
+
+        var removalRanges: [NSRange] = []
+        var searchLocation = firstRange.location + firstRange.length
+
+        while searchLocation < fullText.length {
+            let searchRange = NSRange(location: searchLocation, length: fullText.length - searchLocation)
+            let nextRange = fullText.range(of: token as String, options: [], range: searchRange)
+            guard nextRange.location != NSNotFound else {
+                break
+            }
+
+            removalRanges.append(nextRange)
+            searchLocation = nextRange.location + nextRange.length
+        }
+
+        guard !removalRanges.isEmpty else {
+            return false
+        }
+
+        var selection = textView.selectedRange()
+        textStorage.beginEditing()
+        for range in removalRanges.reversed() {
+            selection = adjustedSelection(selection, removing: range)
+            textStorage.deleteCharacters(in: range)
+        }
+        textStorage.endEditing()
+
+        textView.setSelectedRange(selection)
+        textView.scrollRangeToVisible(selection)
+        return true
+    }
+
     func applyHeading(level: Int?) {
         guard let textView else {
             return
@@ -972,6 +1056,30 @@ final class RichTextEditorController: ObservableObject {
         return RichTextMarkdownCodec.fontWith(size: newSize, weight: weight, italic: italic)
     }
 
+    private func adjustedSelection(_ selection: NSRange, removing range: NSRange) -> NSRange {
+        var location = selection.location
+        var length = selection.length
+        let removedLength = range.length
+        let selectionEnd = selection.location + selection.length
+        let removalEnd = range.location + range.length
+
+        if removalEnd <= selection.location {
+            location -= removedLength
+        } else if range.location < selection.location {
+            location = range.location
+        }
+
+        if selection.length > 0 {
+            if removalEnd <= selectionEnd {
+                length = max(length - removedLength, 0)
+            } else if range.location < selectionEnd {
+                length = max(range.location - location, 0)
+            }
+        }
+
+        return NSRange(location: max(location, 0), length: max(length, 0))
+    }
+
     private func sanitizedTypingAttributes(_ attributes: [NSAttributedString.Key: Any]) -> [NSAttributedString.Key: Any] {
         var sanitized = attributes
         if sanitized[.font] == nil {
@@ -1079,6 +1187,11 @@ struct MarkdownTextEditor: NSViewRepresentable {
             }
 
             controller.attach(textView)
+            let normalizedCursor = controller.normalizeToSingleCursorCommand()
+            let normalizedAddText = controller.normalizeToSingleAddTextCommand()
+            if normalizedCursor || normalizedAddText {
+                NSSound.beep()
+            }
             isUpdatingFromView = true
             text = textView.string
             richTextData = RichTextMarkdownCodec.rtfData(from: textView.attributedString())

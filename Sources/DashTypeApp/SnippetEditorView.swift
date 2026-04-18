@@ -46,7 +46,7 @@ struct SnippetEditorView: View {
 
                 VStack(alignment: .leading, spacing: 20) {
                     fieldCard
-                    contentCard
+                    editorArea
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 .padding(.horizontal, 24)
@@ -198,6 +198,128 @@ struct SnippetEditorView: View {
         .layoutPriority(1)
         .padding(18)
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18))
+    }
+
+    private var editorArea: some View {
+        HStack(alignment: .top, spacing: 20) {
+            contentCard
+
+            commandsCard
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+
+    private var commandsCard: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Label("Commands", systemImage: "terminal")
+                .font(.headline)
+
+            commandButton(
+                title: "Cursor",
+                token: SnippetCommandProcessor.cursorToken,
+                statusText: containsCursorCommand ? "Already Used" : nil,
+                statusColor: .red,
+                disabled: containsCursorCommand,
+                action: {
+                    richTextEditor.insertCursorCommandIfNeeded()
+                },
+                detail: {
+                    Text("Cursor location after text expansion")
+                }
+            )
+            .help(
+                containsCursorCommand
+                    ? "Only one \(SnippetCommandProcessor.cursorToken) can be used in a snippet."
+                    : "Insert \(SnippetCommandProcessor.cursorToken)"
+            )
+
+            commandButton(
+                title: "Clipboard",
+                token: SnippetCommandProcessor.clipboardToken,
+                action: {
+                    richTextEditor.insertClipboardCommand()
+                },
+                detail: {
+                    Text("Add clipboard content")
+                }
+            )
+            .help("Insert \(SnippetCommandProcessor.clipboardToken)")
+
+            commandButton(
+                title: "Add Text",
+                token: SnippetCommandProcessor.addTextToken,
+                statusText: containsAddTextCommand ? "Already Used" : nil,
+                statusColor: .red,
+                disabled: containsAddTextCommand,
+                action: {
+                    richTextEditor.insertAddTextCommandIfNeeded()
+                },
+                detail: {
+                    Text("Insert custom text. Type ")
+                    + Text("{Custom Text}\(triggerPreview)")
+                        .font(.system(.footnote, design: .monospaced))
+                        .foregroundStyle(Color.accentColor)
+                    + Text(" to use.")
+                }
+            )
+            .help(
+                containsAddTextCommand
+                    ? "Only one \(SnippetCommandProcessor.addTextToken) can be used in a snippet."
+                    : "Insert \(SnippetCommandProcessor.addTextToken)"
+            )
+
+            Spacer(minLength: 0)
+        }
+        .frame(width: 240)
+        .frame(maxHeight: .infinity, alignment: .topLeading)
+        .padding(18)
+        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18))
+    }
+
+    private func commandButton<Detail: View>(
+        title: String,
+        token: String,
+        statusText: String? = nil,
+        statusColor: Color = .secondary,
+        disabled: Bool = false,
+        action: @escaping () -> Void,
+        @ViewBuilder detail: () -> Detail
+    ) -> some View {
+        Button(action: action) {
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(alignment: .firstTextBaseline, spacing: 6) {
+                    (
+                        Text(title)
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundStyle(.primary)
+                        +
+                        (statusText.map {
+                            Text(" (\($0))")
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundStyle(statusColor)
+                        } ?? Text(""))
+                    )
+
+                    Spacer(minLength: 8)
+
+                    Text(token)
+                        .font(.system(.caption, design: .monospaced))
+                        .foregroundStyle(Color.accentColor)
+                }
+
+                detail()
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(12)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.primary.opacity(0.04))
+            )
+        }
+        .buttonStyle(.plain)
+        .disabled(disabled)
     }
 
     private var formattingToolbar: some View {
@@ -378,6 +500,19 @@ struct SnippetEditorView: View {
             ? "Untitled"
             : ownerTitle
         return "This trigger conflicts with \"\(displayTitle)\"."
+    }
+
+    private var containsCursorCommand: Bool {
+        content.contains(SnippetCommandProcessor.cursorToken)
+    }
+
+    private var containsAddTextCommand: Bool {
+        content.contains(SnippetCommandProcessor.addTextToken)
+    }
+
+    private var triggerPreview: String {
+        let normalizedTrigger = trigger.trimmingCharacters(in: .whitespacesAndNewlines)
+        return normalizedTrigger.isEmpty ? "/trigger" : normalizedTrigger
     }
 }
 

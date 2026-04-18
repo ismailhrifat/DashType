@@ -60,8 +60,7 @@ struct MenuBarContentView: View {
 
             HStack {
                 Button("Open Dashboard") {
-                    NSApp.activate(ignoringOtherApps: true)
-                    openWindow(id: "dashboard")
+                    openDashboard()
                 }
 
                 Spacer()
@@ -77,5 +76,21 @@ struct MenuBarContentView: View {
         }
         .padding(16)
         .frame(width: 280)
+    }
+
+    private func openDashboard() {
+        openWindow(id: "dashboard")
+
+        DispatchQueue.main.async {
+            NSApp.setActivationPolicy(.regular)
+            NSApp.activate(ignoringOtherApps: true)
+
+            if let dashboardWindow = NSApp.windows.first(where: {
+                $0.styleMask.contains(.titled) && !$0.isMiniaturized
+            }) {
+                dashboardWindow.makeKeyAndOrderFront(nil)
+                dashboardWindow.orderFrontRegardless()
+            }
+        }
     }
 }

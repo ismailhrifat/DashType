@@ -57,8 +57,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         DispatchQueue.main.async { [weak self] in
             self?.configure(window)
+        }
+
+        // Re-evaluate on the next runloop after the window has actually been removed
+        // from AppKit's visible window set. This keeps the menu bar app alive when the
+        // dashboard closes.
+        DispatchQueue.main.async { [weak self] in
             self?.refreshActivationPolicy()
         }
+    }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        false
     }
 
     @objc private func handleUserDefaultsDidChange(_ notification: Notification) {

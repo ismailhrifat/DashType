@@ -62,6 +62,54 @@ import Testing
 
     #expect(match == nil)
 }
+
+@Test func matchesTriggerWithCustomAddText() {
+    let snippet = Snippet(trigger: "/greet", content: "Hi {addtext}")
+
+    let match = SnippetMatcher.match(
+        currentToken: "{John}/greet",
+        snippets: [snippet]
+    )
+
+    #expect(match?.snippet == snippet)
+    #expect(match?.addText == "John")
+    #expect(match?.charactersToReplace == 12)
+}
+
+@Test func matchesTriggerWithEmptyCustomAddText() {
+    let snippet = Snippet(trigger: "/greet", content: "Hi {addtext}")
+
+    let match = SnippetMatcher.match(
+        currentToken: "{}/greet",
+        snippets: [snippet]
+    )
+
+    #expect(match?.snippet == snippet)
+    #expect(match?.addText == "")
+    #expect(match?.charactersToReplace == 8)
+}
+
+@Test func doesNotMatchTriggerWithUnclosedCustomAddText() {
+    let snippet = Snippet(trigger: "/greet", content: "Hi {addtext}")
+
+    let match = SnippetMatcher.match(
+        currentToken: "{John/greet",
+        snippets: [snippet]
+    )
+
+    #expect(match == nil)
+}
+
+@Test func doesNotMatchLegacyTrailingAddTextSyntax() {
+    let snippet = Snippet(trigger: "/greet", content: "Hi {addtext}")
+
+    let match = SnippetMatcher.match(
+        currentToken: "/greet{John}",
+        snippets: [snippet]
+    )
+
+    #expect(match == nil)
+}
 #elseif canImport(XCTest)
 import XCTest
 @testable import DashTypeCore
@@ -122,6 +170,54 @@ final class SnippetMatcherTests: XCTestCase {
 
         let match = SnippetMatcher.match(
             currentToken: "/gree",
+            snippets: [snippet]
+        )
+
+        XCTAssertNil(match)
+    }
+
+    func testMatchesTriggerWithCustomAddText() {
+        let snippet = Snippet(trigger: "/greet", content: "Hi {addtext}")
+
+        let match = SnippetMatcher.match(
+            currentToken: "{John}/greet",
+            snippets: [snippet]
+        )
+
+        XCTAssertEqual(match?.snippet, snippet)
+        XCTAssertEqual(match?.addText, "John")
+        XCTAssertEqual(match?.charactersToReplace, 12)
+    }
+
+    func testMatchesTriggerWithEmptyCustomAddText() {
+        let snippet = Snippet(trigger: "/greet", content: "Hi {addtext}")
+
+        let match = SnippetMatcher.match(
+            currentToken: "{}/greet",
+            snippets: [snippet]
+        )
+
+        XCTAssertEqual(match?.snippet, snippet)
+        XCTAssertEqual(match?.addText, "")
+        XCTAssertEqual(match?.charactersToReplace, 8)
+    }
+
+    func testDoesNotMatchTriggerWithUnclosedCustomAddText() {
+        let snippet = Snippet(trigger: "/greet", content: "Hi {addtext}")
+
+        let match = SnippetMatcher.match(
+            currentToken: "{John/greet",
+            snippets: [snippet]
+        )
+
+        XCTAssertNil(match)
+    }
+
+    func testDoesNotMatchLegacyTrailingAddTextSyntax() {
+        let snippet = Snippet(trigger: "/greet", content: "Hi {addtext}")
+
+        let match = SnippetMatcher.match(
+            currentToken: "/greet{John}",
             snippets: [snippet]
         )
 

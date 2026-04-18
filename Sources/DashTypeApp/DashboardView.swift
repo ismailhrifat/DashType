@@ -24,18 +24,13 @@ struct DashboardView: View {
             detail
         }
         .navigationSplitViewColumnWidth(min: 280, ideal: 320)
-        .frame(minWidth: 880, idealWidth: 980, minHeight: 580, idealHeight: 660)
+        .frame(minWidth: 920, idealWidth: 1050, minHeight: 580, idealHeight: 660)
         .onAppear {
             permissions.refresh()
             expansionController.start()
 
             if selectedSnippetID == nil {
                 selectedSnippetID = store.firstSnippetID
-            }
-        }
-        .onChange(of: permissions.accessibilityGranted) { _, granted in
-            if granted {
-                expansionController.restartIfNeeded()
             }
         }
         .onChange(of: visibleSnippetIDs) { _, ids in

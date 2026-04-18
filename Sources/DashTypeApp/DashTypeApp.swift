@@ -18,21 +18,25 @@ struct DashTypeApp: App {
     init() {
         let store = SnippetStore()
         let permissions = PermissionManager()
+        let expansionController = TextExpansionController(
+            store: store,
+            permissions: permissions
+        )
+        let cloudSyncManager = CloudSyncManager(store: store)
+
         _store = StateObject(wrappedValue: store)
         _permissions = StateObject(wrappedValue: permissions)
         _launchAtLogin = StateObject(wrappedValue: LaunchAtLoginManager())
-        _expansionController = StateObject(
-            wrappedValue: TextExpansionController(
-                store: store,
-                permissions: permissions
-            )
-        )
+        _expansionController = StateObject(wrappedValue: expansionController)
         _snippetTransferController = StateObject(
             wrappedValue: SnippetTransferController(store: store)
         )
-        _cloudSyncManager = StateObject(
-            wrappedValue: CloudSyncManager(store: store)
-        )
+        _cloudSyncManager = StateObject(wrappedValue: cloudSyncManager)
+
+        DispatchQueue.main.async {
+            expansionController.start()
+            cloudSyncManager.activateIfNeeded()
+        }
     }
 
     var body: some Scene {
@@ -48,7 +52,7 @@ struct DashTypeApp: App {
                 cloudSyncManager.activateIfNeeded()
             }
         }
-        .defaultSize(width: 980, height: 660)
+        .defaultSize(width: 1050, height: 660)
 
         MenuBarExtra("DashType", systemImage: "text.badge.plus", isInserted: $showsMenuBarExtra) {
             MenuBarContentView(

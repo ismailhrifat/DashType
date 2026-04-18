@@ -8,6 +8,7 @@ Type a short trigger like `/greet` and DashType expands it instantly anywhere yo
 
 - Native macOS dashboard with folders and snippet management
 - Rich text snippets with bold, italic, underline, links, headings, lists, subscript, and superscript
+- Snippet commands for cursor placement, clipboard insertion, and custom inline text
 - Menu bar access for quick control without keeping a full window open
 - Settings window with `Open at Login`, `Show in the Menubar`, and `Turn Off DashType`
 - Import and export for snippet backups and moving between Macs
@@ -28,6 +29,26 @@ Examples:
 - `/greet`
 - `;sig`
 - `-meeting`
+
+## Snippet Commands
+
+DashType includes a `Commands` panel in the snippet editor for dynamic templates.
+
+Available commands:
+
+- `{cursor}` places the caret at that exact position after expansion finishes
+- `{clipboard}` inserts the current plain-text clipboard contents
+- `{addtext}` inserts custom text supplied as `{Custom Text}/trigger`
+
+Examples:
+
+- `Hello {cursor}, how are you?`
+- `Current clipboard: {clipboard}`
+- Snippet content: `Hi {addtext}, how are you?`
+- Typed trigger: `{John}/greet`
+- Result: `Hi John, how are you?`
+
+For clarity, DashType allows only one `{cursor}` and one `{addtext}` command per snippet.
 
 ## Rich Text
 
@@ -87,6 +108,7 @@ sudo xattr -rd com.apple.quarantine /Applications/DashType.app
 6. Grant Accessibility access when macOS prompts you.
 
 Accessibility permission is required so DashType can detect triggers and replace text in other apps.
+DashType now refreshes automatically after the permission is granted, so you do not need to click back into the app to activate it.
 
 ## Import and Export
 
